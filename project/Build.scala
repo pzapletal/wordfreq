@@ -1,4 +1,7 @@
 import sbt._
+import Keys._
+import sbtassembly.Plugin._
+import AssemblyKeys._
 
 object Version {
   val scala     = "2.10.3"
@@ -22,4 +25,17 @@ object Dependencies {
     scalaTest    % "test"
 
   )
+}
+
+object Builds extends Build {
+  lazy val buildSettings = Defaults.defaultSettings ++ Seq(
+    version := "0.1-SNAPSHOT",
+    organization := "com.example",
+    scalaVersion := Version.scala
+  )
+
+  lazy val app = Project("wordfreq", file("wordfreq"),
+    settings = buildSettings ++ assemblySettings) settings(
+      // your settings here
+    )
 }

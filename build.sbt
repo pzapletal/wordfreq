@@ -8,7 +8,7 @@ autoCompilerPlugins := true
 
 scalaVersion := Version.scala
 
-//resolvers += "spray-releases" at "http://repo.spray.io"
+seq(assemblySettings: _*)
 
 libraryDependencies ++= Dependencies.wordfreq
 
@@ -19,3 +19,5 @@ scalacOptions ++= List(
   "-target:jvm-1.7",
   "-encoding", "UTF-8"
 )
+
+//mainClass in assembly := Some("wordfreq")

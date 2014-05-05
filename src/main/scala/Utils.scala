@@ -22,7 +22,7 @@ object WordFreqCounter {
     else
       sentence
         .toLowerCase //case insensitive
-        .replaceAll("[.,:;?!'\"’`\\\\]", " ") //replace: [.,:;?!\\"`’'] -> " "
+        .replaceAll("[\\(\\)\\{\\}[-:]/.,:;?!'\"’`\\\\]", " ") //removal of unwanted characters
         .split("\\s+")
         .foldLeft(mutable.Map[String, Int]()) {
         (m, w) =>

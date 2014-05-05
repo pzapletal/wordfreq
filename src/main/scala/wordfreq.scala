@@ -1,4 +1,4 @@
-import _root_.scalaz.Success
+import _root_.scalaz.{Failure, Success}
 import com.stackmob.newman._
 import com.stackmob.newman.dsl._
 import com.stackmob.newman.response._
@@ -45,11 +45,12 @@ object wordfreq extends App {
     code = getDestinationCodeFromUrl(req.url.toString)
     jsonBody = resp.bodyAs[JValue]
     if jsonBody.isSuccess
-    text = jsonBody match {    //TODO fix warn
+    text = jsonBody match {
       case Success(v) => v \\ "text"
+      case _ => ???
     }
-    //TODO remove :-, ) (word ending with ), or be in (), },/ in words?, numbers?, -:
-    descriptions = compact(render(text)).replaceAll("text", "")
+    //removal of json structure
+    descriptions = compact(render(text)).replaceAll("\\{?\"text\"\\:\"", "").replaceAll("\"\\}", "")
   } yield (code, descriptions)
 
   results foreach {
