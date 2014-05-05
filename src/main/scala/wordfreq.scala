@@ -38,8 +38,6 @@ object wordfreq extends App {
 
   val reqResult = Await.result(resp, timeout)
 
-  println(reqResult)
-
   val results = for {
     res <- reqResult
     (req, resp) = res
