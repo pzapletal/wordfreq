@@ -1,14 +1,14 @@
+import com.github.retronym.SbtOneJar._
+
 name := "wordfreq"
 
-version := "0.1"
-
-scalaVersion := "2.10.3"
+version := "1.0"
 
 autoCompilerPlugins := true
 
 scalaVersion := Version.scala
 
-seq(assemblySettings: _*)
+oneJarSettings
 
 libraryDependencies ++= Dependencies.wordfreq
 
@@ -20,4 +20,6 @@ scalacOptions ++= List(
   "-encoding", "UTF-8"
 )
 
-//mainClass in assembly := Some("wordfreq")
+
+
+
