@@ -13,7 +13,7 @@ Wordfreq uses sbt for deployment.
 compile - builds application, acquires dependencies
 run - run app, takes 0..N params as arguments
 test - executes junit tests, could be extended with data from [2]
-one-jar - creates executable jar 
+one-jar - creates executable jar
 
 NOTES
 
