@@ -9,7 +9,7 @@ App takes arbitrary number of arguments which are used as destination ids in req
 
 USAGE
 
-
+
 Wordfreq uses sbt for deployment.
 
 compile - builds application, acquires dependencies  
