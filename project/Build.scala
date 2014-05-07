@@ -1,7 +1,4 @@
 import sbt._
-import Keys._
-import sbtassembly.Plugin._
-import AssemblyKeys._
 
 object Version {
   val scala     = "2.10.3"
@@ -14,6 +11,7 @@ object Library {
   val newman         = "com.stackmob"      %% "newman" % "1.3.5"
   val logbackClassic = "ch.qos.logback"    %  "logback-classic" % Version.logback
   val scalaTest      = "org.scalatest"     %% "scalatest"       % Version.scalaTest
+  val onejar        = "commons-lang" % "commons-lang" % "2.6"
 }
 
 object Dependencies {
@@ -22,20 +20,8 @@ object Dependencies {
 
   val wordfreq = List(
     newman,
+    onejar,
     scalaTest    % "test"
 
   )
-}
-
-object Builds extends Build {
-  lazy val buildSettings = Defaults.defaultSettings ++ Seq(
-    version := "0.1-SNAPSHOT",
-    organization := "com.example",
-    scalaVersion := Version.scala
-  )
-
-  lazy val app = Project("wordfreq", file("wordfreq"),
-    settings = buildSettings ++ assemblySettings) settings(
-      // your settings here
-    )
 }
