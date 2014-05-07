@@ -16,6 +16,7 @@ test - executes junit tests, could be extended with data from [2]
 one-jar - creates executable jar 
 
 NOTES
+
 [1] https://github.com/stackmob/newman
 
 [2] http://www.writewords.org.uk/
